@@ -9,6 +9,7 @@ while [ "$HOOK_RETRIES" != 0 ]; do
     echo "Database is up"
     
     PGPASSWORD=$POSTGRESQL_PASSWORD psql -h db -U $POSTGRESQL_USER  -p 5432 -d $POSTGRESQL_DATABASE < /tmp/postgreSQL.sql
+    exit 0
     else
     echo "Db down"
     let HOOK_RETRIES=HOOK_RETRIES-1
